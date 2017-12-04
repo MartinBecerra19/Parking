@@ -36,9 +36,28 @@ class Parking {
         }
         return -1
     }
+    /**
+     * @description Nos devuelve si el coche está o no en el parking
+     * @param {String} matricula Coche que buscamos
+     * @returns {Boolean}
+     */
+    BuscarCoche(matricula) {
+        if (this._coches.indexOf(matricula) >=0) {
+            return true
+        } else {
+            if(this._tunelLavado.indexOf(matricula) >= 0) {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
 }
+
 let parking = new Parking(2);
-let coche1 = { matricula: "G3456754" , lavado: true}
+let coche1 = { matricula: "G3456754", lavado: true }
 let mc = parking.MeterCoche(coche1);
-console.log(mc);
-console.log(parking)
+let bc = parking.BuscarCoche("T4569231");
+let bc1 = parking.BuscarCoche("G3456754");
+console.log(bc);
+console.log(bc1)
